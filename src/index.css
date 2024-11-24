@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+    h1 { @apply text-4xl font-bold }
+    h2 { @apply text-3xl font-bold }
+    h3 { @apply text-2xl font-bold }
+    h4, h5 { @apply text-lg font-bold }
+    h6 { @apply text-sm font-bold }
+    .label { @apply text-white text-sm mb-2 inline-block font-semibold }
+    .input { @apply w-full border-2 duration-300 text-black border-gray-300 rounded-md outline-none }
+}
+
+/* Component styles */
+@layer components {
+    .btn {
+        @apply bg-slate-300 p-2 w-[20%] m-auto text-center text-yellow-400 rounded 
+                hover:cursor-pointer hover:bg-black hover:text-white transition-all ease-in duration-300;
+    }
+    .container-box { @apply w-full max-w-[1200px] px-2 mx-auto }
+}
+
+/* Utility styles */
+@layer utilities {
+    .bx-shadow { @apply border outline-none shadow-md shadow-green-300 }
+}
+
+/* Additional custom styles */
+.downborder::after {
+    content: "";
+    display: block; /* corrected typo from "black" to "block" */
+    height: 2px;
+    width: 120px;
+    background: purple;
+}
+.map iframe {
+    width: 100% !important;
+    height: 50vh;
+}
+
+/* Table styles */
+.table {
+    @apply overflow-auto w-full;
+}
+.table table th {
+    padding: 1rem;
+    color: #fff;
+    text-transform: capitalize;
+}
+.table table thead {
+    background: gray;
+}
+.table table tbody td {
+    padding: 1rem;
+    font-size: 13px;
+    font-weight: 600;
+}
+.table table tbody tr:nth-child(odd) {
+    background: #ccc;
+}
+.table table tbody tr:nth-child(even) {
+    background: #ccc3;
+}
+
+/* Loader animation from Uiverse.io */
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.slider {
+    overflow: hidden;
+    background-color: white;
+    margin: 0 15px;
+    height: 80px;
+    width: 20px;
+    border-radius: 30px;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 30px #fff,
+                inset -5px -5px 10px rgba(0, 0, 255, 0.1),
+                inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 420px 0 400px #2697f3,
+                inset 0px 0px 0px rgba(0, 0, 0, 0.1);
+    animation: animate_2 2.5s ease-in-out infinite;
+    animation-delay: calc(-0.5s * var(--i));
+}
+
+@keyframes animate_2 {
+    0% { transform: translateY(250px); filter: hue-rotate(0deg); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(250px); filter: hue-rotate(180deg); }
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid lightblue;
+    border-right-color: orange;
+    animation: l2 1s infinite linear;
+  }
+  @keyframes l2 {to{transform: rotate(1turn)}}
+
+
+  
+  /* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    color: #f03355;
+    --_c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);
+    background: 
+      var(--_c) 50% 0   /12px 12px,
+      var(--_c) 50% 100%/12px 12px,
+      var(--_c) 100% 50%/12px 12px,
+      var(--_c) 0    50%/12px 12px,
+      var(--_c) 50%  50%/12px 12px,
+      conic-gradient(from 90deg at 4px 4px,#0000 90deg,currentColor 0)
+      -4px -4px/calc(50% + 2px) calc(50% + 2px);
+    animation: l8 1s infinite linear;
+  }
+  @keyframes l8 {to{transform: rotate(.5turn)}}
+
+
+
+
+  /* HTML: <div class="loader"></div> */
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    background: radial-gradient(circle closest-side,#000 94%,#0000) right/calc(200% - 1em) 100%;
+    animation: l24 1s infinite alternate linear;
+  }
+  .loader::before {
+    content: "Loading...";
+    line-height: 1em;
+    color: #0000;
+    background: inherit;
+    background-image: radial-gradient(circle closest-side,#fff 94%,#000);
+    -webkit-background-clip:text;
+            background-clip:text;
+  }
+  
+  @keyframes l24{
+    100%{background-position: left}
+  }
